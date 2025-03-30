@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .tabs {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin-top: 50px;
+            border-bottom: 2px solid #ff4c4c;
+        }
+        .tab {
+            flex: 1;
+            padding: 15px 0;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .tab.active {
+            color: #ff4c4c;
+            border-bottom: 3px solid #ff4c4c;
+        }
+        .content {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab active" onclick="showContent('webdev')">Web Development</div>
+        <div class="tab" onclick="showContent('editing')">Editing</div>
+    </div>
+    
+    <div id="webdev" class="content active">
+        <h2>Web Development</h2>
+        <p>Creating modern, responsive, and user-friendly websites using the latest technologies.</p>
+    </div>
+    
+    <div id="editing" class="content">
+        <h2>Editing</h2>
+        <p>Professional video editing services including transitions, effects, and storytelling.</p>
+    </div>
+
+    <script>
+        function showContent(section) {
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+            document.querySelector(`[onclick="showContent('${section}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
